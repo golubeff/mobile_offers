@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      messages:
+        blank: "missing"
+        taken: "taken"

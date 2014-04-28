@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'haml-rails'
 gem 'pg'
+gem 'foreigner'
 gem 'simple_form'
 group :development do
   gem 'better_errors'
