@@ -13,6 +13,7 @@ set :scm, :git
 set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :bundle_flags, '--deployment --quiet --binstubs'
+set :rails_env, "production"
 
 set :default_env, { 'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH" }
 set :keep_releases, 5
