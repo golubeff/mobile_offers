@@ -22,8 +22,7 @@ namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    sudo "cd #{current_path} && bundle exec unicorn " +
-       "-c #{unicorn_config} -E #{rails_env} -D"
+    invoke 'unicorn:reload'
   end
 
   after :restart, :clear_cache do
