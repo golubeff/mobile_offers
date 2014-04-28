@@ -12,6 +12,7 @@ set :scm, :git
 
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :bundle_flags, '--deployment --quiet --binstubs'
 
 set :default_env, { 'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH" }
 set :keep_releases, 5
@@ -21,7 +22,8 @@ namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    invoke 'unicorn:reload'
+    sudo "cd #{current_path} && bundle exec unicorn " +
+       "-c #{unicorn_config} -E #{rails_env} -D"
   end
 
   after :restart, :clear_cache do
