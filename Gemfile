@@ -21,6 +21,7 @@ group :development do
   gem 'capistrano', '~> 3.0.1'
   gem 'capistrano-bundler'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-rails', '~> 1.1.0'
   gem 'capistrano-rails-console'
   gem 'capistrano-rvm', '~> 0.1.1'
