@@ -107,6 +107,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     kgio (2.9.2)
+    libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -154,6 +155,7 @@ GEM
     rake (10.3.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    ref (1.0.5)
     ruby_parser (3.1.3)
       sexp_processor (~> 4.1)
     sass (3.2.19)
@@ -186,6 +188,9 @@ GEM
       term-ansicolor
     term-ansicolor (1.3.0)
       tins (~> 1.0)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -227,6 +232,7 @@ DEPENDENCIES
   capistrano3-unicorn
   coffee-rails (~> 4.0.0)
   devise
+  execjs
   foreigner
   foreman
   haml-rails
@@ -244,6 +250,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   simple_form
   spring
+  therubyracer
   thin
   turbolinks
   uglifier (>= 1.3.0)

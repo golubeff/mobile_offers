@@ -13,6 +13,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'haml-rails'
 gem 'pg'
+gem 'execjs'
+gem 'therubyracer'
 gem 'foreigner'
 gem 'simple_form'
 group :development do
