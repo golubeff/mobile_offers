@@ -39,4 +39,4 @@ server 'xen37', user: 'deploy', port: 2222, roles: %w{web app db} #, my_property
 #   }
 # setting per server overrides global ssh_options
 
-# fetch(:default_env).merge!(rails_env: :production)
+fetch(:default_env).merge!(rails_env: :production)
