@@ -18,12 +18,13 @@ set :rails_env, "production"
 set :default_env, { 'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH" }
 set :keep_releases, 5
 set :unicorn_config_path, "config/unicorn/production.rb"
+set :unicorn_pid, "tmp/pids/unicorn.pid"
 
 namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    invoke 'unicorn:reload'
+    # invoke 'unicorn:reload'
   end
 
   after :restart, :clear_cache do

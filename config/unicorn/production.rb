@@ -4,6 +4,7 @@ timeout 30
 listen 4000
 stderr_path "log/unicorn.stderr.log"
 stdout_path "log/unicorn.stderr.log"
+pid         "tmp/pids/unicorn.pid"
 
 after_fork do |server, worker|
   ActiveRecord::Base.establish_connection
