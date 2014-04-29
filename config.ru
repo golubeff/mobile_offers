@@ -3,5 +3,5 @@
 require ::File.expand_path('../config/environment',  __FILE__)
 run Rails.application
 
-require 'content_length_fix' 
+require 'lib/content_length_fix' 
 use Nginx::ContentLengthFix
