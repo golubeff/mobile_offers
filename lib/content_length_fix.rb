@@ -6,7 +6,8 @@ module Nginx
 
     def call(env)
       status, headers, response = @app.call(env)
-      headers["Content-Length"] = response.length.to_s if status == 201
+
+      headers["Content-Length"] = response[0].length.to_s if status == 201
       [status, headers, response]
     end                
   end
