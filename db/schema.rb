@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428191039) do
+ActiveRecord::Schema.define(version: 20140429025438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140428191039) do
   end
 
   add_index "devices", ["token"], name: "index_devices_on_token", unique: true, using: :btree
+  add_index "devices", ["uuid", "os", "model", "ifa", "mac", "user_id"], name: "unique_device", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

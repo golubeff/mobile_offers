@@ -18,7 +18,17 @@ class RegistrationsController < Devise::RegistrationsController
       scope = User.where(email: params[:user][:email])
       if scope.exists?
         user = scope.first
-        device = user.devices.create(params[:user][:device_attributes].permit( Device::ALLOWED_ATTRIBUTES))
+
+        device_attr = params[:user][:device_attributes].permit(Device::ALLOWED_ATTRIBUTES)
+        
+        devices_scope = Device.where(device_attr.update :user_id => user.id)
+        device = nil
+        if devices_scope.exists?
+          device = devices_scope.first
+        else
+          device = user.devices.create(device_attr)
+        end
+
         user.prefer_device!(device)
         respond_with user
       end
