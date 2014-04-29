@@ -2,9 +2,9 @@ class Device < ActiveRecord::Base
   ALLOWED_ATTRIBUTES = [ :os, :uuid, :model, :ifa, :mac ]
 
   belongs_to :user
-  include Tokenable
+  # include Tokenable
 
   def serializable_hash(options=nil)
-    { id: id, token: token }
+    { id: id }
   end
 end

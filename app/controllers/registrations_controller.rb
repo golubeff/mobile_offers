@@ -1,10 +1,18 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :check_if_user_exists, :only => :create, if: :devise_controller?
   before_filter :create_password, :only => :create, if: :devise_controller?
+  after_filter :remember_device, :only => :create, if: :devise_controller?
 
   respond_to :json
 
+  def remember_device(device=nil)
+    device ||= resource.device if resource && resource.device
+    puts "REMEMBER DEVICE resource: #{resource.inspect}"
+    session[:device_id] = device.id
+  end
+
   def create_password
+    puts 123
     params[:user] ||= {}
     @password = params[:user][:password_confirmation] = params[:user][:password] = Devise.friendly_token.first(8)
   end
@@ -30,6 +38,9 @@ class RegistrationsController < Devise::RegistrationsController
         end
 
         user.prefer_device!(device)
+
+        remember_device(user.device)
+
         respond_with user
       end
     end
