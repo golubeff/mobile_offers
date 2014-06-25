@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def remember_device(device=nil)
     device ||= resource.device if resource && resource.device
-    puts "REMEMBER DEVICE resource: #{resource.inspect}"
+    # puts "REMEMBER DEVICE resource: #{resource.inspect}"
     session[:device_id] = device.id
   end
 
